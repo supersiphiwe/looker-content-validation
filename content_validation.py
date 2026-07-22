@@ -164,6 +164,15 @@ def monitor_and_group_errors():
                   "Check Looker's Content Validator directly for the full list._"
             )
 
+        # Persist a copy of the report to results/results_{datetime}.
+        os.makedirs("results", exist_ok=True)
+        result_path = os.path.join(
+            "results", f"results_{now.strftime('%d%m%y%H%M')}"
+        )
+        with open(result_path, "w", encoding="utf-8") as f:
+            f.write(payload_text)
+        print(f"Report saved to {result_path}.")
+
         webhook_url = os.environ.get("WEBHOOK_URL")
         if webhook_url:
             try:
@@ -176,8 +185,7 @@ def monitor_and_group_errors():
                 print(f"Failed to send Slack alert: {e}", file=sys.stderr)
                 raise
         else:
-            print("WARNING: WEBHOOK_URL is not set — printing report instead of sending to Slack.", file=sys.stderr)
-            print(payload_text)
+            print(f"WEBHOOK_URL is not set — skipping Slack alert. Report available at {result_path}.")
     else:
         print("No broken content found.")
 
