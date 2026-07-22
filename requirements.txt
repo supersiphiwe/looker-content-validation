@@ -1,0 +1,2 @@
+looker-sdk>=24,<25
+requests>=2.31,<3

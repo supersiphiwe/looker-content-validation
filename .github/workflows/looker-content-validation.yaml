@@ -1,0 +1,29 @@
+name: Looker Content Validation
+
+on:
+  schedule:
+    - cron: '0 7 * * 1-5'   # 7am UTC, weekdays — adjust as needed
+  workflow_dispatch: {}      # lets you trigger it by hand from the Actions tab
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run content validation
+        env:
+          LOOKERSDK_BASE_URL: ${{ secrets.LOOKERSDK_BASE_URL }}
+          LOOKERSDK_CLIENT_ID: ${{ secrets.LOOKERSDK_CLIENT_ID }}
+          LOOKERSDK_CLIENT_SECRET: ${{ secrets.LOOKERSDK_CLIENT_SECRET }}
+          WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: python content_validation.py

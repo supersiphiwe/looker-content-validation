@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+
+# Looker SDK local config — never commit credentials
+looker.ini
+
+# Local environment variables
+.env
+
+# OS / editor cruft
+.DS_Store
