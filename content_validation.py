@@ -33,6 +33,13 @@ import requests
 from datetime import datetime, timezone
 from collections import defaultdict
 
+try:
+    # Optional: load a local .env for development. Absent in CI, where the
+    # values come from repo secrets, so this is a no-op there.
+    from dotenv import load_dotenv
+except ImportError:
+    load_dotenv = None
+
 # Keep a safety margin under Slack's message size limits.
 MAX_PAYLOAD_CHARS = 35000
 
@@ -58,16 +65,30 @@ def get_time_bucket(last_viewed_at, now):
 
 
 def monitor_and_group_errors():
+    if load_dotenv:
+        load_dotenv()
+
     sdk = looker_sdk.init40()
 
     print("Fetching usage data for Dashboards and Looks...")
-    # Fetch usage for both types to build a unified lookup map
-    dashboards = sdk.all_dashboards(fields="id, last_viewed_at")
-    looks = sdk.all_looks(fields="id, last_viewed_at")
+    # Fetch usage for both types to build a unified lookup map.
+    # Use search_* (not all_dashboards, which returns a lightweight
+    # DashboardBase without last_viewed_at). No spaces in `fields` — a stray
+    # space can cause the field to be silently dropped.
+    dashboards = sdk.search_dashboards(fields="id,last_viewed_at")
+    looks = sdk.search_looks(fields="id,last_viewed_at")
 
     # Prefix IDs to avoid collisions between Dashboard ID 1 and Look ID 1
     usage_map = {f"dash_{d.id}": d.last_viewed_at for d in dashboards}
     usage_map.update({f"look_{l.id}": l.last_viewed_at for l in looks})
+
+    # ContentValidationFolder only exposes id + name, so fetch folders once
+    # to know which are personal (personal or a descendant of one). `name` is
+    # a required field on FolderBase, so it must be requested too.
+    folders = sdk.all_folders(fields="id,name,is_personal,is_personal_descendant")
+    personal_folders = {
+        f.id: bool(f.is_personal or f.is_personal_descendant) for f in folders
+    }
 
     print("Running content validation...")
     results = sdk.content_validation()
@@ -95,7 +116,7 @@ def monitor_and_group_errors():
 
             # 2. Determine Folder Context
             if folder:
-                if folder.is_personal:
+                if personal_folders.get(folder.id, False):
                     folder_label = f"👤 Personal ({folder.name})"
                 else:
                     folder_label = f"📁 Shared ({folder.name})"
