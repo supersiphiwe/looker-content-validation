@@ -1,0 +1,3 @@
+Compare			Amount of data process
+			Data accuracy
+			Query execution time - not old vs new, just duration. This will help identify fields that are bottlenecks

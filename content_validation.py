@@ -98,7 +98,7 @@ def monitor_and_group_errors():
     total_errors = 0
     skipped_items = 0
 
-    for item in results.content_with_errors:
+    for item in (results.content_with_errors or []):
         try:
             # 1. Extract context based on whether it's a Dashboard or a Look
             if item.dashboard:
@@ -141,13 +141,19 @@ def monitor_and_group_errors():
             print(f"Warning: skipped one content_validation item due to: {e!r}", file=sys.stderr)
             continue
 
-    # Define strict bucket rendering order
+    # Define strict bucket rendering order, and how each reads in the report
     bucket_order = [
         "last 1 week",
         "last 2 weeks",
         "last 1 month",
         "older than 1 month / never viewed",
     ]
+    bucket_labels = {
+        "last 1 week": "viewed in the last 1 week",
+        "last 2 weeks": "viewed in the last 2 weeks",
+        "last 1 month": "viewed in the last 1 month",
+        "older than 1 month / never viewed": "viewed over 1 month ago or never viewed",
+    }
 
     final_alert_lines = [
         "🚨 *Looker Content Validation Report*",
@@ -167,7 +173,7 @@ def monitor_and_group_errors():
             continue
 
         count = len(items_in_bucket)
-        final_alert_lines.append(f"*{count} item(s) viewed in the {bucket}:*")
+        final_alert_lines.append(f"*{count} item(s) {bucket_labels[bucket]}:*")
 
         for formatted_item in items_in_bucket:
             final_alert_lines.append(formatted_item)
@@ -179,8 +185,9 @@ def monitor_and_group_errors():
         payload_text = "\n".join(final_alert_lines)
 
         if len(payload_text) > MAX_PAYLOAD_CHARS:
+            truncated = payload_text[:MAX_PAYLOAD_CHARS].rsplit("\n", 1)[0]
             payload_text = (
-                payload_text[:MAX_PAYLOAD_CHARS]
+                truncated
                 + "\n\n_...truncated — too many broken items for one Slack message. "
                   "Check Looker's Content Validator directly for the full list._"
             )
@@ -188,7 +195,7 @@ def monitor_and_group_errors():
         # Persist a copy of the report to results/results_{datetime}.
         os.makedirs("results", exist_ok=True)
         result_path = os.path.join(
-            "results", f"results_{now.strftime('%d%m%y%H%M')}"
+            "results", f"results_{now.strftime('%Y%m%d_%H%M')}.txt"
         )
         with open(result_path, "w", encoding="utf-8") as f:
             f.write(payload_text)
