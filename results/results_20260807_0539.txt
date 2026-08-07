@@ -1,0 +1,540 @@
+🚨 *Looker Content Validation Report*
+_941 broken items found._
+
+*2 item(s) viewed in the last 1 week:*
+• *[Dashboard]* Real Time Dashboard - Daily | `📁 Shared (Real Time Dashboard)`
+    ↳ *Error:* Unknown field "ndt_realtime_dash_realtime_dashboard.total_gross_revenue_amount_selected_day".
+• *[Dashboard]* Real Time Dashboard - Daily | `📁 Shared (Real Time Dashboard)`
+    ↳ *Error:* Unknown field "ndt_realtime_dash_realtime_dashboard.total_gross_revenue_amount_selected_day".
+
+
+*2 item(s) viewed in the last 2 weeks:*
+• *[Dashboard]* H&L Weekly Trade / Item Report | `📁 Shared (Home and Living)`
+    ↳ *Error:* Unknown field "sku.sum_sku_fsp".
+    ↳ *Error:* Unknown field "sku.sum_sku_rsp".
+    ↳ *Error:* Unknown field "order.average_sales_units".
+    ↳ *Error:* Unknown field "order.average_net_revenue_amount".
+    ↳ *Error:* Unknown field "order.average_gross_revenue_amount".
+• *[Dashboard]* Post Season Analysis | `📁 Shared (Post Seasonal Analysis)`
+    ↳ *Error:* Unknown field "intakes.sum_intake_units".
+    ↳ *Error:* Unknown field "intakes.sum_intake_fsp".
+    ↳ *Error:* Unknown field "intakes.posting_date".
+
+
+*12 item(s) viewed in the last 1 month:*
+• *[Look]* Supplier Order Book - Men's Wear | `📁 Shared (Mens)`
+    ↳ *Error:* Unknown field "purchase_order_2.document_dc".
+    ↳ *Error:* Unknown field "purchase_order_2.document_id".
+    ↳ *Error:* Unknown field "purchase_order_2.document_status".
+    ↳ *Error:* Unknown field "purchase_order_2.document_type".
+    ↳ *Error:* Unknown field "purchase_order_2.sum_expected_intake_units".
+    ↳ *Error:* Unknown field "purchase_order_2.sum_expected_intake_value_fsp".
+• *[Dashboard]* Page Views | `📁 Shared (Superbalist Shared)`
+    ↳ *Error:* Unknown model "pageviews".
+• *[Dashboard]* Page Views | `📁 Shared (Superbalist Shared)`
+    ↳ *Error:* Unknown model "pageviews".
+• *[Dashboard]* Page Views | `📁 Shared (Superbalist Shared)`
+    ↳ *Error:* Unknown model "pageviews".
+• *[Dashboard]* Page Views | `📁 Shared (Superbalist Shared)`
+    ↳ *Error:* Unknown model "pageviews".
+• *[Dashboard]* Page Views | `📁 Shared (Superbalist Shared)`
+    ↳ *Error:* Unknown model "pageviews".
+• *[Dashboard]* Page Views | `📁 Shared (Superbalist Shared)`
+    ↳ *Error:* Unknown model "pageviews".
+• *[Dashboard]* Page Views | `📁 Shared (Superbalist Shared)`
+    ↳ *Error:* Unknown model "pageviews".
+• *[Dashboard]* Page Views | `📁 Shared (Superbalist Shared)`
+    ↳ *Error:* Unknown model "pageviews".
+• *[Dashboard]* Page Views | `📁 Shared (Superbalist Shared)`
+    ↳ *Error:* Unknown model "pageviews".
+• *[Dashboard]* Page Views | `📁 Shared (Superbalist Shared)`
+    ↳ *Error:* Unknown model "pageviews".
+• *[Dashboard]* Page Views | `📁 Shared (Superbalist Shared)`
+    ↳ *Error:* Unknown model "pageviews".
+
+
+*925 item(s) viewed over 1 month ago or never viewed:*
+• *[Look]* Sup Eng Metrics Metrics | `👤 Personal (Ashley Martin)`
+    ↳ *Error:* Unknown field "sup_eng_metrics__metrics.parent_concern".
+    ↳ *Error:* Unknown field "sup_eng_metrics__metrics.parent_metric_sort_order".
+    ↳ *Error:* Unknown field "sup_eng_metrics__metrics.key".
+    ↳ *Error:* Unknown field "sup_eng_metrics__metrics.metric".
+    ↳ *Error:* Unknown field "sup_eng_metrics__metrics.target".
+    ↳ *Error:* Unknown field "sup_eng_metrics__metrics.measure_formatted".
+• *[Look]* Sup Eng Metrics Metrics | `📁 Shared (SUP Engineering Metrics Weekly Updates)`
+    ↳ *Error:* Unknown field "sup_eng_metrics__metrics.parent_concern".
+    ↳ *Error:* Unknown field "sup_eng_metrics__metrics.parent_metric_sort_order".
+    ↳ *Error:* Unknown field "sup_eng_metrics__metrics.key".
+    ↳ *Error:* Unknown field "sup_eng_metrics__metrics.metric".
+    ↳ *Error:* Unknown field "sup_eng_metrics__metrics.target".
+    ↳ *Error:* Unknown field "sup_eng_metrics__metrics.measure_formatted".
+• *[Look]* Sup Eng Metrics - Busy With | `📁 Shared (SUP Engineering Metrics Weekly Updates)`
+    ↳ *Error:* Unknown field "sup_eng_metrics__team_comments.type".
+• *[Look]* Sup Eng Metrics Actions | `📁 Shared (SUP Engineering Metrics Weekly Updates)`
+    ↳ *Error:* Unknown field "sup_eng_metrics.week_date".
+• *[Look]* Sup Eng Metrics - Win | `📁 Shared (SUP Engineering Metrics Weekly Updates)`
+    ↳ *Error:* Unknown field "sup_eng_metrics__team_comments.type".
+• *[Look]* Sup Eng Metrics - Risks | `📁 Shared (SUP Engineering Metrics Weekly Updates)`
+    ↳ *Error:* Unknown field "sup_eng_metrics__team_comments.type".
+• *[Look]* Actions | `👤 Personal (Ashley Martin)`
+    ↳ *Error:* Unknown field "sup_eng_metrics.date_week_date".
+    ↳ *Error:* Unknown field "sup_eng_metrics__metrics.date_review_date".
+• *[Look]* Engineering Concerns - Delivery | `👤 Personal (Ashley Martin)`
+    ↳ *Error:* Unknown field "sup_eng_metrics__metrics.metric".
+    ↳ *Error:* Unknown field "sup_eng_metrics__metrics.key".
+    ↳ *Error:* Unknown field "sup_eng_metrics__metrics.measure".
+    ↳ *Error:* Unknown field "sup_eng_metrics__metrics.target".
+    ↳ *Error:* Unknown field "sup_eng_metrics__metrics.date_review_date".
+    ↳ *Error:* Unknown field "sup_eng_metrics__metrics.concern".
+• *[Look]* Engineering Concerns - People | `👤 Personal (Ashley Martin)`
+    ↳ *Error:* Unknown field "sup_eng_metrics__metrics.parent_metric_sort_order".
+    ↳ *Error:* Unknown field "sup_eng_metrics__metrics.parent_concern".
+    ↳ *Error:* Unknown field "sup_eng_metrics__metrics.key".
+    ↳ *Error:* Unknown field "sup_eng_metrics__metrics.metric".
+    ↳ *Error:* Unknown field "sup_eng_metrics__metrics.target".
+    ↳ *Error:* Unknown field "sup_eng_metrics__metrics.measure_formatted".
+• *[Look]* Data at lowest level sales by brand | `👤 Personal (Gary De Klerk)`
+    ↳ *Error:* Unknown field "order.age_in_days_at_sale".
+• *[Look]* Play | `👤 Personal (Gary De Klerk)`
+    ↳ *Error:* Unknown field "sku.sum_sku_cost".
+    ↳ *Error:* Unknown field "sku.sum_sku_fsp".
+    ↳ *Error:* Unknown field "sku.sum_sku_rsp".
+• *[Look]* Flint 2 | `👤 Personal (Gary De Klerk)`
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+• *[Look]* Play 2024 april to june | `👤 Personal (Gary De Klerk)`
+    ↳ *Error:* Unknown field "sku.sum_sku_cost".
+    ↳ *Error:* Unknown field "sku.sum_sku_fsp".
+    ↳ *Error:* Unknown field "sku.sum_sku_rsp".
+• *[Look]* Watches & Fragrance Offers | `👤 Personal (Tammy Du Toit)`
+    ↳ *Error:* Unknown field "product.stock_ageing_current".
+    ↳ *Error:* Unknown field "sku.max_sku_rsp".
+    ↳ *Error:* Unknown field "sku.max_sku_cost".
+• *[Look]* H&L Monday Trade | `👤 Personal (Tammy Du Toit)`
+    ↳ *Error:* Unknown field "sku.max_sku_rsp".
+    ↳ *Error:* Unknown field "order.max_amount_paid_by_customer_amount".
+• *[Look]* Offer Selections | `👤 Personal (Tammy Du Toit)`
+    ↳ *Error:* Unknown field "product.stock_ageing_current".
+    ↳ *Error:* Unknown field "sku.max_sku_rsp".
+    ↳ *Error:* Unknown field "sku.max_sku_cost".
+• *[Look]* Replen | `👤 Personal (Tammy Du Toit)`
+    ↳ *Error:* Unknown field "sku.max_sku_rsp".
+    ↳ *Error:* Unknown field "order.max_amount_paid_by_customer_amount".
+• *[Look]* Basic Stock & Sales Report | `👤 Personal (Tammy Du Toit)`
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+• *[Look]* Ageing Margin Splits | `👤 Personal (Luvo Matshoqo)`
+    ↳ *Error:* Unknown field "product.stock_ageing_current".
+• *[Look]* Ageing Margin Splits | `📁 Shared (Reporting (Looks & Dashboards))`
+    ↳ *Error:* Unknown field "product.stock_ageing_current".
+• *[Look]* PSA KPI DOC Closing Stocks | `👤 Personal (Lutho Magodla)`
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+    ↳ *Error:* Unknown field "sku.max_sku_fsp".
+• *[Look]* For Reviews | `👤 Personal (Flint Ntshangase)`
+    ↳ *Error:* Unknown field "purchase_order.sum_actual_intake_units".
+• *[Look]* For Reviews2 | `👤 Personal (Flint Ntshangase)`
+    ↳ *Error:* Unknown field "purchase_order.sum_actual_intake_units".
+• *[Look]* For Reviews 3 | `👤 Personal (Flint Ntshangase)`
+    ↳ *Error:* Unknown field "purchase_order.sum_actual_intake_units".
+• *[Look]* For Reviews 4 | `👤 Personal (Flint Ntshangase)`
+    ↳ *Error:* Unknown field "purchase_order.sum_actual_intake_units".
+• *[Look]* Product Performance WTD | `👤 Personal (Mulalo Mbulungeni)`
+    ↳ *Error:* Unknown field "product.stock_ageing_current".
+• *[Look]* Mango Stores Barcode download | `👤 Personal (Flint Ntshangase)`
+    ↳ *Error:* Unknown field "purchase_order.sum_actual_intake_units".
+• *[Look]* mango go live | `👤 Personal (Flint Ntshangase)`
+    ↳ *Error:* Unknown field "purchase_order.sum_actual_intake_units".
+• *[Look]* Ashwin Dump | `👤 Personal (Esihle Zungula)`
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+    ↳ *Error:* Unknown field "product.stock_ageing_current".
+• *[Look]* mango seasonal selltru | `👤 Personal (Flint Ntshangase)`
+    ↳ *Error:* Unknown field "purchase_order.sum_actual_intake_units".
+• *[Look]* Department Analysis - Data | `👤 Personal (Esihle Zungula)`
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+    ↳ *Error:* Unknown field "product.stock_ageing_current".
+• *[Look]* images | `👤 Personal (Flint Ntshangase)`
+    ↳ *Error:* Unknown field "purchase_order.sum_actual_intake_units".
+• *[Look]* Departmet Analysis - Data | `👤 Personal (Esihle Zungula)`
+    ↳ *Error:* Unknown field "product.stock_ageing_current".
+• *[Look]* Weekly Style Report Data Export 1 | `👤 Personal (Lutho Magodla)`
+    ↳ *Error:* Unknown field "sku.max_sku_fsp".
+    ↳ *Error:* Unknown field "product.stock_ageing_current".
+• *[Look]* Seasonality and Supplier | `👤 Personal (Mulalo Mbulungeni)`
+    ↳ *Error:* Unknown field "product.stock_ageing_current".
+• *[Look]* Demand doc intakes | `👤 Personal (Mulalo Mbulungeni)`
+    ↳ *Error:* Unknown field "purchase_order.sum_actual_intake_units".
+• *[Look]* Weekly trade style card | `👤 Personal (Data / BI POC Builds)`
+    ↳ *Error:* Unknown field "product.stock_ageing_current".
+• *[Look]* Shopify Mango Barcodes | `👤 Personal (Flint Ntshangase)`
+    ↳ *Error:* Unknown field "purchase_order.sum_actual_intake_units".
+    ↳ *Error:* Unknown field "sku.max_sku_rsp".
+• *[Look]* toolkiev2 | `👤 Personal (Flint Ntshangase)`
+    ↳ *Error:* Unknown field "sku.max_sku_rsp".
+    ↳ *Error:* Unknown field "purchase_order.sum_actual_intake_units".
+• *[Look]* Shopify Mango Barcodes2 Use This | `👤 Personal (Flint Ntshangase)`
+    ↳ *Error:* Unknown field "purchase_order.sum_actual_intake_units".
+    ↳ *Error:* Unknown field "sku.max_sku_rsp".
+    ↳ *Error:* Unknown field "sku.max_sku_cost".
+• *[Look]* Mother of all dashboards | `👤 Personal (Projects)`
+    ↳ *Error:* Unknown field "product.stock_ageing_current".
+• *[Look]* trial saved as a look | `👤 Personal (Balisa Mbasa)`
+    ↳ *Error:* Unknown field "sku.sum_sku_fsp".
+    ↳ *Error:* Unknown field "sku.sum_sku_rsp".
+    ↳ *Error:* Unknown field "order.average_sales_units".
+    ↳ *Error:* Unknown field "order.average_net_revenue_amount".
+    ↳ *Error:* Unknown field "order.average_gross_revenue_amount".
+• *[Look]* Look Demoo | `👤 Personal (Training)`
+    ↳ *Error:* Unknown field "sku.sum_sku_fsp".
+    ↳ *Error:* Unknown field "sku.sum_sku_rsp".
+    ↳ *Error:* Unknown field "order.average_sales_units".
+    ↳ *Error:* Unknown field "order.average_net_revenue_amount".
+    ↳ *Error:* Unknown field "order.average_gross_revenue_amount".
+• *[Look]* demo | `👤 Personal (Karen Latsky)`
+    ↳ *Error:* Unknown field "order.average_net_revenue_amount".
+• *[Look]* toolkie v4 | `👤 Personal (Flint Ntshangase)`
+    ↳ *Error:* Unknown field "sku.max_sku_rsp".
+• *[Dashboard]* Planners-test | `👤 Personal (Fashion United)`
+    ↳ *Error:* Unknown field "self_service.retail_year".
+    ↳ *Error:* Unknown field "order.brand".
+    ↳ *Error:* Unknown field "order.department_name".
+    ↳ *Error:* Unknown field "order.department_name".
+• *[Dashboard]* Test | `👤 Personal (Fashion United)`
+    ↳ *Error:* Unknown field "order.department_name".
+    ↳ *Error:* Unknown field "purchase_order.sum_actual_intake_units".
+    ↳ *Error:* Unknown field "order.3rd_party_or_private_label".
+• *[Dashboard]* Test - Footwear | `👤 Personal (Fashion United)`
+    ↳ *Error:* Unknown field "order.department_name".
+    ↳ *Error:* Unknown field "purchase_order.sum_actual_intake_units".
+• *[Dashboard]* Test 13 | `👤 Personal (Fashion United)`
+    ↳ *Error:* Unknown field "order.department_name".
+    ↳ *Error:* Unknown field "purchase_order.sum_actual_intake_units".
+    ↳ *Error:* Unknown field "order.category_level_1".
+    ↳ *Error:* Unknown field "order.category_level_2".
+    ↳ *Error:* Unknown field "order.3rd_party_or_private_label".
+    ↳ *Error:* Unknown field "order.department_name".
+    ↳ *Error:* Unknown field "order.3rd_party_or_private_label".
+• *[Dashboard]* Test 8 | `👤 Personal (Fashion United)`
+    ↳ *Error:* Unknown field "order.category_level_1".
+    ↳ *Error:* Unknown field "order.category_level_2".
+    ↳ *Error:* Unknown field "order.3rd_party_or_private_label".
+    ↳ *Error:* Unknown field "order.department_name".
+• *[Dashboard]* Payment Performance - Trend Analysis (WIP) | `👤 Personal (Abdul-Qaadir Sulayman)`
+    ↳ *Error:* Unknown field "order.average_amount_paid_by_customer_amount".
+• *[Dashboard]* Payment Performance Reporting (WIP) | `👤 Personal (Abdul-Qaadir Sulayman)`
+    ↳ *Error:* Unknown field "order.average_amount_paid_by_customer_amount".
+• *[Dashboard]* Brand/supplier sales and margin | `👤 Personal (Carlos Jardim)`
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+• *[Dashboard]* Weekly performance at stock age | `👤 Personal (Gary De Klerk)`
+    ↳ *Error:* Unknown field "self_service.retail_year".
+    ↳ *Error:* Unknown field "self_service.retail_month".
+    ↳ *Error:* Unknown field "self_service.retail_day_of_month".
+    ↳ *Error:* Unknown field "order.retail_atb_ind".
+    ↳ *Error:* Unknown field "order.department_name".
+    ↳ *Error:* Unknown field "order.category_level_1".
+    ↳ *Error:* Unknown field "order.category_level_2".
+    ↳ *Error:* Unknown field "order.brand".
+• *[Dashboard]* GDK WEEKLY STK | `👤 Personal (Gary De Klerk)`
+    ↳ *Error:* Unknown field "order.3rd_party_or_private_label".
+    ↳ *Error:* Unknown field "order.brand".
+    ↳ *Error:* Unknown field "order.category_level_1".
+    ↳ *Error:* Unknown field "order.category_level_2".
+    ↳ *Error:* Unknown field "order.department_name".
+    ↳ *Error:* Unknown field "self_service.retail_month".
+    ↳ *Error:* Unknown field "self_service.retail_year".
+• *[Dashboard]* Offer Selection Sheet | `👤 Personal (Tammy Du Toit)`
+    ↳ *Error:* Unknown field "product.stock_ageing_current".
+    ↳ *Error:* Unknown field "sku.max_sku_rsp".
+    ↳ *Error:* Unknown field "sku.max_sku_cost".
+• *[Dashboard]* App dept - FTB/Repeat | `👤 Personal (Julia Redelinghuys)`
+    ↳ *Error:* Unknown field "order.department_name".
+• *[Dashboard]* Style Card WIP | `👤 Personal (Ashwin Alexander)`
+    ↳ *Error:* Unknown field "purchase_order.sum_actual_intake_units".
+• *[Dashboard]* Daily performance by department V3 | `👤 Personal (Amanda Arbuckle)`
+    ↳ *Error:* Unknown field "order.average_sales_margin_amount".
+    ↳ *Error:* Unknown field "order.average_sales_margin_amount".
+• *[Dashboard]* Weekly sales report | `👤 Personal (Mulalo Mbulungeni)`
+    ↳ *Error:* Unknown field "product.stock_ageing_current".
+• *[Dashboard]* Fin Rev Report - Consigments | `👤 Personal (Phill De koe)`
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+• *[Dashboard]* Size Curve Report | `👤 Personal (Data / BI POC Builds)`
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+• *[Dashboard]* Size Curves | `👤 Personal (Data / BI POC Builds)`
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+• *[Dashboard]* Size Curves (copy) | `👤 Personal (Esihle Zungula)`
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+• *[Dashboard]* Size Curves | `👤 Personal (Deleted User Content)`
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+• *[Dashboard]* Size Curves | `📁 Shared (Supply Chain)`
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+• *[Dashboard]* Size Curves | `📁 Shared (Stock and Sales)`
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+• *[Dashboard]* Rev Margin Splits - FSP Offers Markdowns (copy) | `👤 Personal (Luvo Matshoqo)`
+    ↳ *Error:* Unknown field "product.stock_ageing_current".
+• *[Dashboard]* Rev Margin Splits - FSP Offers Markdowns (copy) | `👤 Personal (Luvo Matshoqo)`
+    ↳ *Error:* Unknown field "product.stock_ageing_current".
+• *[Dashboard]* Rev Margin Splits - FSP Offers Markdowns (copy) | `👤 Personal (Luvo Matshoqo)`
+    ↳ *Error:* Unknown field "product.stock_ageing_current".
+• *[Dashboard]* Rev Margin Splits - FSP Offers Markdowns (copy) | `👤 Personal (Luvo Matshoqo)`
+    ↳ *Error:* Unknown field "product.stock_ageing_current".
+• *[Dashboard]* Weekly Product Brand Report POC Dash (Naledi) | `👤 Personal (Data / BI POC Builds)`
+    ↳ *Error:* Unknown field "wtd_sales_value_fsp_ly".
+• *[Dashboard]* Weekly Product Brand Report POC Dash (Naledi) (copy) | `👤 Personal (Abdul-Qaadir Sulayman)`
+    ↳ *Error:* Unknown field "wtd_sales_value_fsp_ly".
+• *[Dashboard]* Weekly Product Brand Report POC Dash (Naledi) (SUPERBALIST Branding + Brand Filtering) | `👤 Personal (Data / BI POC Builds)`
+    ↳ *Error:* Unknown field "wtd_sales_value_fsp_ly".
+• *[Dashboard]* Weekly Product Brand Report POC Dash (Naledi) | `👤 Personal (Data / BI POC Builds)`
+    ↳ *Error:* Unknown field "wtd_sales_value_fsp_ly".
+• *[Dashboard]* Weekly Product Brand Report POC Dash (Naledi) (copy) | `👤 Personal (Abdul-Qaadir Sulayman)`
+    ↳ *Error:* Unknown field "wtd_sales_value_fsp_ly".
+• *[Dashboard]* Weekly Product Brand Report POC Dash (Naledi) (SUPERBALIST Branding + Brand Filtering) | `👤 Personal (Data / BI POC Builds)`
+    ↳ *Error:* Unknown field "wtd_sales_value_fsp_ly".
+• *[Dashboard]* Weekly Product Brand Report POC Dash (Naledi) | `👤 Personal (Data / BI POC Builds)`
+    ↳ *Error:* Unknown field "wtd_sales_value_fsp_ly".
+• *[Dashboard]* Weekly Product Brand Report POC Dash (Naledi) (copy) | `👤 Personal (Abdul-Qaadir Sulayman)`
+    ↳ *Error:* Unknown field "wtd_sales_value_fsp_ly".
+• *[Dashboard]* Weekly Product Brand Report POC Dash (Naledi) (SUPERBALIST Branding + Brand Filtering) | `👤 Personal (Data / BI POC Builds)`
+    ↳ *Error:* Unknown field "wtd_sales_value_fsp_ly".
+• *[Dashboard]* Secondary offer by parent bucket 2026 | `👤 Personal (Luvo Matshoqo)`
+    ↳ *Error:* Unknown field "product.stock_ageing_current".
+• *[Dashboard]* Weekly Product Brand Report (copy) | `👤 Personal (Projects)`
+    ↳ *Error:* Unknown field "order.count_distinct_product_id".
+    ↳ *Error:* Unknown field "wtd_sales_value_fsp_ly".
+• *[Dashboard]* Weekly Product Brand Report (copy) | `👤 Personal (Projects)`
+    ↳ *Error:* Unknown field "wtd_sales_value_fsp_ly".
+• *[Dashboard]* monthly performance by dept v4 | `👤 Personal (Amanda Arbuckle)`
+    ↳ *Error:* Unknown field "order.average_sales_margin_amount".
+    ↳ *Error:* Unknown field "order.average_sales_margin_amount".
+• *[Dashboard]* Finance consignment facet report | `👤 Personal (Kearabetswe Tilo)`
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+• *[Dashboard]* Finance consignment facet report v1 | `👤 Personal (Kearabetswe Tilo)`
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+• *[Dashboard]* Finance consignment facet report v2 | `👤 Personal (Kearabetswe Tilo)`
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+• *[Dashboard]* Private label % of Rev & Intake Margin | `📁 Shared (Test Folder (Looker Admin))`
+    ↳ *Error:* Unknown field "product.stock_ageing_current".
+• *[Dashboard]* Weekly Product Brand Report (WIP) | `👤 Personal (Data / BI POC Builds)`
+    ↳ *Error:* Unknown field "wtd_sales_value_fsp_ly".
+• *[Dashboard]* Weekly Product Brand Report (WIP) (copy) | `👤 Personal (Data / BI POC Builds)`
+    ↳ *Error:* Unknown field "wtd_sales_value_fsp_ly".
+• *[Dashboard]* Weekly Product Brand Report (WIP) (working copy) | `👤 Personal (Abdul-Qaadir Sulayman)`
+    ↳ *Error:* Unknown field "wtd_sales_value_fsp_ly".
+• *[Dashboard]* Weekly Product Brand Report (WIP) | `👤 Personal (Data / BI POC Builds)`
+    ↳ *Error:* Unknown field "order.count_distinct_product_id".
+    ↳ *Error:* Unknown field "wtd_sales_value_fsp_ly".
+    ↳ *Error:* Calculation references field "order.order_type" not in query.
+• *[Dashboard]* Weekly Product Brand Report (WIP) (copy) | `👤 Personal (Data / BI POC Builds)`
+    ↳ *Error:* Unknown field "order.count_distinct_product_id".
+    ↳ *Error:* Unknown field "wtd_sales_value_fsp_ly".
+    ↳ *Error:* Calculation references field "order.order_type" not in query.
+• *[Dashboard]* Weekly Product Brand Report (WIP) (working copy) | `👤 Personal (Abdul-Qaadir Sulayman)`
+    ↳ *Error:* Unknown field "order.count_distinct_product_id".
+    ↳ *Error:* Unknown field "wtd_sales_value_fsp_ly".
+    ↳ *Error:* Calculation references field "order.order_type" not in query.
+• *[Dashboard]* H&L test | `👤 Personal (Karen Latsky)`
+    ↳ *Error:* Unknown field "order.average_net_revenue_amount".
+• *[Dashboard]* Weekly Brand Report- Final | `👤 Personal (Projects)`
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+• *[Dashboard]* Weekly Brand Report- Final (copy) | `👤 Personal (Data / BI POC Builds)`
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+• *[Dashboard]* Weekly Brand Report- Final | `👤 Personal (Data / BI POC Builds)`
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+• *[Dashboard]* Weekly Brand Report- Final (copy 2) | `👤 Personal (Data / BI POC Builds)`
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+• *[Dashboard]* Weekly Brand Report- Final (copy 3) | `👤 Personal (Data / BI POC Builds)`
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+• *[Dashboard]* Planners-test | `👤 Personal (Fashion United)`
+    ↳ *Error:* Unknown field "order.department_name".
+• *[Dashboard]* Test | `👤 Personal (Fashion United)`
+    ↳ *Error:* Unknown field "order.3rd_party_or_private_label".
+• *[Dashboard]* Test 13 | `👤 Personal (Fashion United)`
+    ↳ *Error:* Unknown field "order.department_name".
+• *[Dashboard]* Test 13 | `👤 Personal (Fashion United)`
+    ↳ *Error:* Unknown field "order.3rd_party_or_private_label".
+• *[Dashboard]* GDK WEEKLY STK | `👤 Personal (Gary De Klerk)`
+    ↳ *Error:* Unknown field "self_service.retail_month".
+• *[Dashboard]* GDK WEEKLY STK | `👤 Personal (Gary De Klerk)`
+    ↳ *Error:* Unknown field "self_service.retail_year".
+• *[Dashboard]* Daily performance by department V3 | `👤 Personal (Amanda Arbuckle)`
+    ↳ *Error:* Unknown field "order.average_sales_margin_amount".
+• *[Dashboard]* Fin Rev Report - Consigments | `👤 Personal (Phill De koe)`
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+• *[Dashboard]* Size Curves | `📁 Shared (Stock and Sales)`
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+• *[Dashboard]* Size Curves | `👤 Personal (Data / BI POC Builds)`
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+• *[Dashboard]* Size Curves (copy) | `👤 Personal (Esihle Zungula)`
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+• *[Dashboard]* Size Curves | `👤 Personal (Deleted User Content)`
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+• *[Dashboard]* Size Curves | `📁 Shared (Supply Chain)`
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+• *[Dashboard]* monthly performance by dept v4 | `👤 Personal (Amanda Arbuckle)`
+    ↳ *Error:* Unknown field "order.average_sales_margin_amount".
+• *[Dashboard]* Finance consignment facet report v1 | `👤 Personal (Kearabetswe Tilo)`
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+• *[Dashboard]* Finance consignment facet report v2 | `👤 Personal (Kearabetswe Tilo)`
+    ↳ *Error:* Unknown field "sku_suppliers.supplier".
+• *[Dashboard]* Test | `👤 Personal (Fashion United)`
+    ↳ *Error:* Unknown explore "order".
+• *[Dashboard]* Test - Footwear | `👤 Personal (Fashion United)`
+    ↳ *Error:* Unknown explore "order".
+• *[Dashboard]* Test 8 | `👤 Personal (Fashion United)`
+    ↳ *Error:* Unknown explore "order".
+• *[Dashboard]* Daily Reports | `📁 Shared (User Created Apps)`
+    ↳ *Error:* Unknown explore "order".
+• *[Look]* Detail (copy) | `👤 Personal (Fashion United)`
+    ↳ *Error:* Unknown field "current_stock.grumpy_atb".
+    ↳ *Error:* Unknown field "current_stock.grumpy_marked_down".
+• *[Look]* Detail | `👤 Personal (Fashion United)`
+    ↳ *Error:* Unknown field "current_stock.grumpy_atb".
+    ↳ *Error:* Unknown field "current_stock.grumpy_marked_down".
+• *[Look]* Checkout Rebuild - Overview on Project | `👤 Personal (Abdul-Qaadir Sulayman)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Look]* Sprint Data | `👤 Personal (Saeed Marzban)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Look]* Medic Checkbox Field - Test | `👤 Personal (Deleted User Content)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Look]* Track Jira Tickets Daily (POC-WIP) | `👤 Personal (Deleted User Content)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Look]* Test Created vs Resolved | `👤 Personal (Deleted User Content)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Look]* Checkout Rebuild - Over Time | `👤 Personal (Abdul-Qaadir Sulayman)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Look]* Checkout Rebuild - Project Completion Percentage - ShopFront Web | `👤 Personal (Abdul-Qaadir Sulayman)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Look]* Checkout Rebuild - Project Progress per 90 days / Quarter | `👤 Personal (Abdul-Qaadir Sulayman)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Look]* Checkout Rebuild - CHE Project Completion Percentage | `👤 Personal (Abdul-Qaadir Sulayman)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Look]* Medic Issues - Count | `👤 Personal (Deleted User Content)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Look]* Checkout Rebuild - Project Per Quarter | `👤 Personal (Abdul-Qaadir Sulayman)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Look]* Checkout Rebuild - Tickets By Theme | `👤 Personal (Abdul-Qaadir Sulayman)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Look]* Ticket count per Label | `👤 Personal (Deleted User Content)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Look]* Checkout Rebuild - Tickets by Label and Status | `👤 Personal (Abdul-Qaadir Sulayman)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Look]* Checkout Rebuild - Shopfront Web Project Completion Percentage | `👤 Personal (Abdul-Qaadir Sulayman)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data - Research & Development | `👤 Personal (Abdul-Qaadir Sulayman)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data Dash 2024 (copy) | `👤 Personal (Checkout Rebuild - Project Tracking)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data | `📁 Shared (Medic Data (POC) - (WIP))`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data - Research & Development | `👤 Personal (Abdul-Qaadir Sulayman)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data Dash 2024 (copy) | `👤 Personal (Checkout Rebuild - Project Tracking)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data | `📁 Shared (Medic Data (POC) - (WIP))`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data Dash 2024 (copy) | `👤 Personal (Checkout Rebuild - Project Tracking)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data | `📁 Shared (Medic Data (POC) - (WIP))`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data Dash 2024 (copy) | `👤 Personal (Checkout Rebuild - Project Tracking)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data | `📁 Shared (Medic Data (POC) - (WIP))`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data - Research & Development | `👤 Personal (Abdul-Qaadir Sulayman)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data Dash 2024 (copy) | `👤 Personal (Checkout Rebuild - Project Tracking)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data | `📁 Shared (Medic Data (POC) - (WIP))`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data - Research & Development | `👤 Personal (Abdul-Qaadir Sulayman)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data Dash 2024 (copy) | `👤 Personal (Checkout Rebuild - Project Tracking)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data | `📁 Shared (Medic Data (POC) - (WIP))`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data - Research & Development | `👤 Personal (Abdul-Qaadir Sulayman)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data Dash 2024 (copy) | `👤 Personal (Checkout Rebuild - Project Tracking)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data | `📁 Shared (Medic Data (POC) - (WIP))`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data | `📁 Shared (Medic Data (POC) - (WIP))`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data - Research & Development | `👤 Personal (Abdul-Qaadir Sulayman)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data | `📁 Shared (Medic Data (POC) - (WIP))`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data - Research & Development | `👤 Personal (Abdul-Qaadir Sulayman)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data Dash 2024 (copy) | `👤 Personal (Checkout Rebuild - Project Tracking)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data | `📁 Shared (Medic Data (POC) - (WIP))`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data - Research & Development | `👤 Personal (Abdul-Qaadir Sulayman)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data | `📁 Shared (Medic Data (POC) - (WIP))`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data - Research & Development | `👤 Personal (Abdul-Qaadir Sulayman)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data Dash 2024 (copy) | `👤 Personal (Checkout Rebuild - Project Tracking)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data | `📁 Shared (Medic Data (POC) - (WIP))`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data - Research & Development | `👤 Personal (Abdul-Qaadir Sulayman)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data Dash 2024 (copy) | `👤 Personal (Checkout Rebuild - Project Tracking)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data | `📁 Shared (Medic Data (POC) - (WIP))`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data Dash 2024 (copy) | `👤 Personal (Checkout Rebuild - Project Tracking)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data | `📁 Shared (Medic Data (POC) - (WIP))`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data | `📁 Shared (Medic Data (POC) - (WIP))`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data | `📁 Shared (Medic Data (POC) - (WIP))`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data | `📁 Shared (Medic Data (POC) - (WIP))`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data | `📁 Shared (Medic Data (POC) - (WIP))`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data | `📁 Shared (Medic Data (POC) - (WIP))`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data | `📁 Shared (Medic Data (POC) - (WIP))`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Merchant Team - Medic Data | `📁 Shared (Medic Data (POC) - (WIP))`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Sprint View | `📁 Shared (Jira)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Sprint View | `📁 Shared (Jira)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Sprint View | `📁 Shared (Jira)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Active Incidents | `👤 Personal (Ashley Martin)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Active Incidents | `👤 Personal (Ashley Martin)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Active Incidents | `👤 Personal (Ashley Martin)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Active Incidents | `👤 Personal (Ashley Martin)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Active Incidents | `👤 Personal (Ashley Martin)`
+    ↳ *Error:* Unknown model "sup_engineering_metrics".
+• *[Dashboard]* Active Incidents | `👤 Personal (Ashley Martin)`
+
+_...truncated — too many broken items for one Slack message. Check Looker's Content Validator directly for the full list._
