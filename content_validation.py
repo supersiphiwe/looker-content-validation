@@ -1,48 +1,48 @@
 """
-Looker Content Validation -> Slack alert.
+Looker Content Validation Alerting Script.
 
-Runs Looker's Content Validator, groups any broken Looks/Dashboards by how
-recently they were last viewed, and posts a summary to a Slack channel via
-an Incoming Webhook.
+Executes Looker's Content Validator via the Looker SDK, identifies broken Looks 
+and Dashboards, groups them by how recently they were last viewed, and posts a 
+formatted summary to a Slack channel using an Incoming Webhook.
 
-Fixes applied vs. the original version:
-  - get_time_bucket() no longer returns two differently-cased strings for
-    "old" vs. "never viewed" content. Previously "Older than 1 month /
-    Never viewed" (capitalized) and "older than 1 month / never viewed"
-    (lowercase) were treated as different dict keys, so never-viewed
-    content was silently dropped from the rendered report even though it
-    was still counted in the total.
-  - The Slack POST now sets a timeout and calls raise_for_status(), so a
-    revoked webhook / archived channel / bad payload surfaces as a failed
-    Action run instead of a silent "Alert sent to webhook." with nothing
-    actually delivered.
-  - A missing WEBHOOK_URL now prints a loud warning to stderr (still falls
-    back to printing the report to stdout, for local testing).
-  - Each item is now processed in its own try/except so one unexpectedly-
-    shaped item can't take down the whole run; skipped items are counted
-    and called out in the final report instead of vanishing.
-  - A basic length guard on the final payload, in case a large validation
-    run (e.g. right after a LookML refactor) produces more text than Slack
-    will accept in one message.
+State Management & Deduplication:
+To prevent continuous alerting for the same broken content, previously reported 
+issues are tracked by their IDs in `results/known_issues.json`. New breakages 
+are added to this file only AFTER a successful Slack webhook POST (using an atomic 
+write to prevent corruption). If the POST fails or the webhook URL is missing, 
+the script exits without updating the state file, ensuring the alerts are retried 
+on the next run.
+
+Important CI/CD Note:
+The state file (`results/known_issues.json`) must be persisted between runs 
+(e.g., via git commits back to the repo, CI caching, or persistent storage). 
+If the file is lost, the script will treat all existing broken content as "new" 
+and re-alert.
+
+Environment Variables Required:
+- LOOKERSDK_BASE_URL: The URL of your Looker instance.
+- LOOKERSDK_CLIENT_ID: Looker API client ID.
+- LOOKERSDK_CLIENT_SECRET: Looker API client secret.
+- WEBHOOK_URL: (Optional) Slack Incoming Webhook URL. If omitted, the script 
+  writes the report locally but skips Slack alerting and state updates.
 """
 
 import looker_sdk
 import os
 import sys
+import json
+import tempfile
 import requests
 from datetime import datetime, timezone
 from collections import defaultdict
 
 try:
-    # Optional: load a local .env for development. Absent in CI, where the
-    # values come from repo secrets, so this is a no-op there.
     from dotenv import load_dotenv
 except ImportError:
     load_dotenv = None
 
-# Keep a safety margin under Slack's message size limits.
 MAX_PAYLOAD_CHARS = 35000
-
+KNOWN_ISSUES_FILE = os.path.join("results", "known_issues.json")
 
 def get_time_bucket(last_viewed_at, now):
     """Categorizes a datetime into a specific time bucket."""
@@ -53,7 +53,6 @@ def get_time_bucket(last_viewed_at, now):
         last_viewed_at = last_viewed_at.replace(tzinfo=timezone.utc)
 
     days_ago = (now - last_viewed_at).days
-
     if days_ago <= 7:
         return "last 1 week"
     elif days_ago <= 14:
@@ -63,15 +62,30 @@ def get_time_bucket(last_viewed_at, now):
     else:
         return "older than 1 month / never viewed"
 
+def save_known_issues(broken_ids):
+    """
+    Write state atomically — temp file in the same directory, then rename, so
+    an interrupted run can't leave truncated JSON behind.
+    """
+    os.makedirs("results", exist_ok=True)
+    fd, tmp_path = tempfile.mkstemp(dir="results", prefix=".known_issues.", suffix=".tmp")
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            json.dump(sorted(broken_ids), f)
+        os.replace(tmp_path, KNOWN_ISSUES_FILE)
+    except Exception:
+        if os.path.exists(tmp_path):
+            os.unlink(tmp_path)
+        raise
+    print(f"State file updated successfully ({len(broken_ids)} item(s) tracked).")
 
 def monitor_and_group_errors():
     if load_dotenv:
         load_dotenv()
 
     sdk = looker_sdk.init40()
-
     print("Fetching usage data for Dashboards and Looks...")
-    # Fetch usage for both types to build a unified lookup map.
+
     # Use search_* (not all_dashboards, which returns a lightweight
     # DashboardBase without last_viewed_at). No spaces in `fields` — a stray
     # space can cause the field to be silently dropped.
@@ -82,25 +96,45 @@ def monitor_and_group_errors():
     usage_map = {f"dash_{d.id}": d.last_viewed_at for d in dashboards}
     usage_map.update({f"look_{l.id}": l.last_viewed_at for l in looks})
 
-    # ContentValidationFolder only exposes id + name, so fetch folders once
-    # to know which are personal (personal or a descendant of one). `name` is
-    # a required field on FolderBase, so it must be requested too.
+    # ContentValidationFolder only exposes id + name, so fetch folders once to
+    # know which are personal (personal or a descendant of one). `name` is a
+    # required field on FolderBase, so it must be requested too.
     folders = sdk.all_folders(fields="id,name,is_personal,is_personal_descendant")
     personal_folders = {
         f.id: bool(f.is_personal or f.is_personal_descendant) for f in folders
     }
+
+    # LOAD STATE
+    known_issues = set()
+    if os.path.exists(KNOWN_ISSUES_FILE):
+        try:
+            with open(KNOWN_ISSUES_FILE, "r", encoding="utf-8") as f:
+                known_issues = set(json.load(f))
+            print(f"Loaded {len(known_issues)} previously known broken item(s).")
+        except Exception as e:
+            print(f"Warning: could not load known issues: {e}", file=sys.stderr)
+    else:
+        # If this shows up on every run, the state file isn't being persisted
+        # and dedup is doing nothing.
+        print(
+            f"Warning: no state file at {KNOWN_ISSUES_FILE} — treating all "
+            f"current breakages as new.",
+            file=sys.stderr,
+        )
 
     print("Running content validation...")
     results = sdk.content_validation()
 
     grouped_errors = defaultdict(list)
     now = datetime.now(timezone.utc)
-    total_errors = 0
+
+    new_errors_count = 0
     skipped_items = 0
+    current_broken_ids = set()
 
     for item in (results.content_with_errors or []):
         try:
-            # 1. Extract context based on whether it's a Dashboard or a Look
+            # 1. Extract context
             if item.dashboard:
                 c_type = "Dashboard"
                 c_id = f"dash_{item.dashboard.id}"
@@ -112,7 +146,13 @@ def monitor_and_group_errors():
                 title = item.look.title
                 folder = item.look.folder
             else:
-                continue  # Skip edge case system files
+                continue
+
+            # Check if we already alerted on this
+            if c_id in known_issues:
+                # Still broken, so keep it in our state file for next run
+                current_broken_ids.add(c_id)
+                continue
 
             # 2. Determine Folder Context
             if folder:
@@ -127,96 +167,112 @@ def monitor_and_group_errors():
             last_viewed = usage_map.get(c_id)
             bucket = get_time_bucket(last_viewed, now)
 
-            # 4. Format the item and its errors
+            # 4. Format errors
             error_messages = [f"    ↳ *Error:* {err.message}" for err in item.errors]
-
-            formatted_item = f"• *[{c_type}]* {title} | `{folder_label}`\n" + "\n".join(error_messages)
+            formatted_item = (
+                f"• *[{c_type}]* {title} | `{folder_label}`\n" + "\n".join(error_messages)
+            )
 
             grouped_errors[bucket].append(formatted_item)
-            total_errors += 1
+            new_errors_count += 1
+
+            # Add to state ONLY if it successfully formatted without throwing an exception
+            current_broken_ids.add(c_id)
 
         except Exception as e:
-            # Don't let one unexpectedly-shaped item take down the whole alert.
             skipped_items += 1
             print(f"Warning: skipped one content_validation item due to: {e!r}", file=sys.stderr)
             continue
 
-    # Define strict bucket rendering order, and how each reads in the report
-    bucket_order = [
-        "last 1 week",
-        "last 2 weeks",
-        "last 1 month",
-        "older than 1 month / never viewed",
-    ]
-    bucket_labels = {
-        "last 1 week": "viewed in the last 1 week",
-        "last 2 weeks": "viewed in the last 2 weeks",
-        "last 1 month": "viewed in the last 1 month",
-        "older than 1 month / never viewed": "viewed over 1 month ago or never viewed",
-    }
+    # 5. Build Payload & Save TXT Report
+    os.makedirs("results", exist_ok=True)
+    result_path = os.path.join("results", f"results_{now.strftime('%Y%m%d_%H%M')}.txt")
 
-    final_alert_lines = [
-        "🚨 *Looker Content Validation Report*",
-        f"_{total_errors} broken items found._\n",
-    ]
+    if new_errors_count > 0:
+        bucket_order = [
+            "last 1 week",
+            "last 2 weeks",
+            "last 1 month",
+            "older than 1 month / never viewed",
+        ]
+        bucket_labels = {
+            "last 1 week": "viewed in the last 1 week",
+            "last 2 weeks": "viewed in the last 2 weeks",
+            "last 1 month": "viewed in the last 1 month",
+            "older than 1 month / never viewed": "viewed over 1 month ago or never viewed",
+        }
 
-    if skipped_items:
-        final_alert_lines.append(
-            f"_⚠️ {skipped_items} item(s) skipped due to an unexpected API response shape "
-            f"— check the run logs._\n"
-        )
+        final_alert_lines = [
+            "🚨 *Looker Content Validation Report*",
+            f"_{new_errors_count} *new* broken items found._\n",
+        ]
 
-    for bucket in bucket_order:
-        items_in_bucket = grouped_errors.get(bucket, [])
+        if skipped_items:
+            final_alert_lines.append(
+                f"_⚠️ {skipped_items} item(s) skipped due to an unexpected API response shape._\n"
+            )
 
-        if not items_in_bucket:
-            continue
+        for bucket in bucket_order:
+            items_in_bucket = grouped_errors.get(bucket, [])
+            if not items_in_bucket:
+                continue
 
-        count = len(items_in_bucket)
-        final_alert_lines.append(f"*{count} item(s) {bucket_labels[bucket]}:*")
+            count = len(items_in_bucket)
+            final_alert_lines.append(f"*{count} item(s) {bucket_labels[bucket]}:*")
 
-        for formatted_item in items_in_bucket:
-            final_alert_lines.append(formatted_item)
+            for formatted_item in items_in_bucket:
+                final_alert_lines.append(formatted_item)
 
-        final_alert_lines.append("\n")  # Spacing between buckets
+            final_alert_lines.append("\n")
 
-    # Send payload
-    if total_errors > 0:
         payload_text = "\n".join(final_alert_lines)
 
         if len(payload_text) > MAX_PAYLOAD_CHARS:
             truncated = payload_text[:MAX_PAYLOAD_CHARS].rsplit("\n", 1)[0]
             payload_text = (
                 truncated
-                + "\n\n_...truncated — too many broken items for one Slack message. "
-                  "Check Looker's Content Validator directly for the full list._"
+                + "\n\n_...truncated — too many broken items for one Slack message._"
             )
 
-        # Persist a copy of the report to results/results_{datetime}.
-        os.makedirs("results", exist_ok=True)
-        result_path = os.path.join(
-            "results", f"results_{now.strftime('%Y%m%d_%H%M')}.txt"
-        )
+        # Write txt report
         with open(result_path, "w", encoding="utf-8") as f:
             f.write(payload_text)
-        print(f"Report saved to {result_path}.")
 
+        # 6. Send to Slack
         webhook_url = os.environ.get("WEBHOOK_URL")
         if webhook_url:
             try:
-                # Slack uses specific block formatting for advanced layouts,
-                # but standard text payload supports markdown natively.
                 response = requests.post(webhook_url, json={"text": payload_text}, timeout=10)
                 response.raise_for_status()
                 print("Alert sent to webhook.")
             except requests.RequestException as e:
                 print(f"Failed to send Slack alert: {e}", file=sys.stderr)
+                # Raise kills the script BEFORE state is updated.
+                # Next run will re-detect these items as "new" and retry alerting.
                 raise
         else:
-            print(f"WEBHOOK_URL is not set — skipping Slack alert. Report available at {result_path}.")
-    else:
-        print("No broken content found.")
+            # Nothing was delivered, so don't record these as alerted-on —
+            # otherwise a missing or renamed secret silently eats every alert.
+            print(
+                f"WEBHOOK_URL is not set — skipping Slack alert and leaving state "
+                f"unchanged so these are retried. Report available at {result_path}.",
+                file=sys.stderr,
+            )
+            return
 
+    else:
+        # NO NOISE: Write report for CI commit, but do not send a Slack message.
+        total_broken = len(current_broken_ids)
+        payload_text = f"✅ Looker Content Validation: No new issues found. (There are {total_broken} previously known broken items)."
+
+        with open(result_path, "w", encoding="utf-8") as f:
+            f.write(payload_text)
+        print(payload_text + " Skipping Slack alert to reduce channel noise.")
+
+    # 7. SAVE STATE
+    # Only reached if the Slack POST succeeded or there were zero new errors.
+    # A failed POST raises above; an unconfigured webhook returns above.
+    save_known_issues(current_broken_ids)
 
 if __name__ == "__main__":
     monitor_and_group_errors()
