@@ -1,0 +1,12 @@
+🚨 *Looker Content Validation Report*
+_3 *new* broken items found._
+
+*3 item(s) viewed over 1 month ago or never viewed:*
+• *[Look]* Loreal_Estee_Laude_test_dont_push | `👤 Personal (Ketro Sithole)`
+    ↳ *Error:* Unknown field "loreal_and_estee_lauder.order_platform".
+• *[Dashboard]* Loreal_BrandReport | `👤 Personal (Ketro Sithole)`
+    ↳ *Error:* Unknown field "loreal_and_estee_lauder.order_platform".
+    ↳ *Error:* Unknown field "loreal_and_estee_lauder.order_platform".
+• *[Dashboard]* Loreal_BrandReport | `👤 Personal (Ketro Sithole)`
+    ↳ *Error:* Unknown field "loreal_and_estee_lauder.order_platform".
+
