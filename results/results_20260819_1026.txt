@@ -1,0 +1,7 @@
+🚨 *Looker Content Validation Report*
+_1 *new* broken items found._
+
+*1 item(s) viewed in the last 1 week:*
+• *[Dashboard]* WW 3P Style Report Dump - WIP | `📁 Shared (Z_Sales)`
+    ↳ *Error:* Calculation references field "sku_2.sku_fsp" not in query.
+
