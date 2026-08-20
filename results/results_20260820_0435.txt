@@ -1,0 +1,11 @@
+🚨 *Looker Content Validation Report*
+_3 *new* broken items found._
+
+*3 item(s) viewed over 1 month ago or never viewed:*
+• *[Dashboard]* User Report | `👤 Personal (Looker Admin)`
+    ↳ *Error:* Unknown field "content_usage.report_deleted".
+• *[Dashboard]* User Report | `📁 Shared (SUP Engineering Metrics Weekly Updates)`
+    ↳ *Error:* Unknown field "content_usage.report_deleted".
+• *[Dashboard]* User Off boarding Audit Dashboard | `👤 Personal (Data / BI POC Builds)`
+    ↳ *Error:* Unknown field "content_usage.report_deleted".
+
